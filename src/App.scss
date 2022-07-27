@@ -1,0 +1,54 @@
+//HEADER
+
+header {
+    height:5.2rem;
+    border-bottom: 1px solid #EFEFEF;
+}
+
+.top-bar {
+    display: flex;
+    margin:0 auto;
+    justify-content: space-between;
+    align-items: center;
+    max-width:128rem;
+    padding: 0rem 2rem 0rem 2rem; 
+}
+
+.home-img {
+    background-color: #EFEFEF;
+    height: 45.5rem;
+    width:100%;
+}
+
+.home-block-text {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    max-width:128rem;
+    margin: 0 auto;
+    padding-left: 2rem;
+}
+
+.home-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height:22rem;
+    width:36rem;
+    background-color: white;
+    border-radius: 0.5rem;
+}
+
+//MAIN
+
+.main-container {
+    background-color: aquamarine;
+    max-width:128rem;
+    margin: 0 auto;
+    height:600px;
+
+}
+
+.card-profile {
+    display: flex;
+}
