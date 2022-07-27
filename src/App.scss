@@ -39,16 +39,38 @@ header {
     border-radius: 0.5rem;
 }
 
-//MAIN
+//OFFERS CONTAINER
 
-.main-container {
-    background-color: aquamarine;
+.offers-container {
     max-width:128rem;
     margin: 0 auto;
-    height:600px;
+    display: flex;
+    flex-wrap: wrap;
 
+}
+
+.card-container {
+    width:23.5rem;
+    margin:0 auto;
+    padding-top:3.5rem;
 }
 
 .card-profile {
     display: flex;
+}
+
+.card-avatar {
+    width:2.5rem;
+    height:2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card-product-img {
+    height:36rem;
+    width:23.5rem;
+    display: flex;
+    overflow: hidden;
+    overflow-x: scroll;
+    object-fit: cover;
 }
