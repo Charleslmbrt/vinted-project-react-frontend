@@ -1,0 +1,42 @@
+.offer-body {
+    background-color:#ebedee;
+}
+
+.offer-container {
+    max-width:128rem;
+    margin:0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 2rem 3rem 2rem; 
+}
+
+.offer-pictures {
+    height: 60rem;
+    object-fit: cover;
+}
+
+.offer-infos {
+    background-color: white;
+    width:32rem;
+    padding:4rem
+}
+
+.offer-infos {
+    .offer-price {
+       font-size: 2.4rem;
+    }
+
+    .offer-list li {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1.4rem;
+    }
+
+    .offer-list-category {
+        color:#999;
+    }
+
+    .offer-list-name {
+        color:#666;
+    }
+}
