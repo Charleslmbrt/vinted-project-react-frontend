@@ -14,7 +14,10 @@ const Header = () => {
           <input placeholder="Recherche des articles"></input>
         </div>
         <div className="top-menu">
-          <button>S'inscrire</button>
+          <Link to="/signup">
+            <button>S'inscrire</button>
+          </Link>
+
           <button>Se connecter</button>
           <button>Vends tes arcticles</button>
         </div>

@@ -44,6 +44,7 @@ const Offer = () => {
           <ul className="offer-list">
             {data.product_details.map((detail, index) => {
               const keys = Object.keys(detail);
+
               return (
                 <li key={index}>
                   <span className="offer-list-category">{keys[0]} </span>
