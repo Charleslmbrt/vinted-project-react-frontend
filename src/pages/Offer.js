@@ -42,19 +42,15 @@ const Offer = () => {
           </div>
 
           <ul className="offer-list">
-            <li>
-              {data.product_details.map((detail, index) => {
-                const keys = Object.keys(detail);
-                return (
-                  <div>
-                    <span className="offer-list-category">{keys[0]} </span>
-                    <span key={index} className="offer-list-name">
-                      {detail[keys[0]]}
-                    </span>
-                  </div>
-                );
-              })}
-            </li>
+            {data.product_details.map((detail, index) => {
+              const keys = Object.keys(detail);
+              return (
+                <li key={index}>
+                  <span className="offer-list-category">{keys[0]} </span>
+                  <span className="offer-list-name">{detail[keys[0]]}</span>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="divider"></div>
