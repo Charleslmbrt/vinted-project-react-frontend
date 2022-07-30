@@ -41,42 +41,50 @@ const Home = () => {
           {data.offers.map((offer, index) => {
             // console.log(offer?.owner?.account?.username);
             // if (offer.owner) {}
+            console.log(offer.product_image.secure_url);
             return (
               <div key={index} className="card-container">
                 <div className="card-profile">
-                  <img
-                    className="card-avatar"
-                    src={offer.owner?.account.avatar.secure_url}
-                    alt="Avatar"
-                  />
-                  <p>{offer.owner?.account.username}</p>
+                  {offer.owner?.account.avatar.secure_url ? (
+                    <img
+                      className="card-avatar"
+                      src={offer.owner?.account.avatar.secure_url}
+                      alt="Avatar"
+                    />
+                  ) : (
+                    <div className="default-avatar">
+                      <p className="default-avatar-text">V</p>
+                    </div>
+                  )}
+                  {offer.owner?.account.avatar.secure_url ? (
+                    <p>{offer.owner?.account.username}</p>
+                  ) : (
+                    <p>Vendeur.se Vinted</p>
+                  )}
                 </div>
 
                 <Link to={`/offer/${offer._id}`}>
                   <div className="card-product-img">
-                    {offer.product_pictures.map((picture, index) => {
-                      return (
-                        <img
-                          key={index}
-                          src={picture.secure_url}
-                          alt="Product"
-                        />
-                      );
-                    })}
+                    {/* {offer.product_pictures.map((picture, index) => {
+
+                      return ( */}
+                    <img
+                      key={index}
+                      src={offer.product_image.secure_url}
+                      alt="Product"
+                    />
+                    {/* );
+                    })} */}
                   </div>
                 </Link>
 
                 <div className="card-product-info">
-                  <p className="card-product-info-price">
-                    {offer.product_price}
-                  </p>
+                  <p className="card-product-price">{offer.product_price} €</p>
                   {offer.product_details.map((detail, index) => {
                     return (
-                      <div key={index} className="card-product-info">
+                      <div key={index} className="card-product-sb">
                         <p className="card-product-size">{detail.TAILLE}</p>
-                        <p className="card-product-info-brand">
-                          {detail.MARQUE}
-                        </p>
+                        <p className="card-product-brand">{detail.MARQUE}</p>
                       </div>
                     );
                   })}

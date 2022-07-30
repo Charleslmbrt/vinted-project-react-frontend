@@ -2,43 +2,8 @@
 @use "../css/signup";
 @use "../css/login";
 @use "../css/header";
+@use "../css/home";
 
 //FONTS
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Poppins:ital,wght@0,400;0,700;1,200&display=swap');
 
-
-//OFFERS CONTAINER
-
-.offers-container {
-    max-width:128rem;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-
-}
-
-.card-container {
-    width:23.5rem;
-    margin:0 auto;
-    padding-top:3.5rem;
-}
-
-.card-profile {
-    display: flex;
-}
-
-.card-avatar {
-    width:2.5rem;
-    height:2.5rem;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.card-product-img {
-    height:36rem;
-    width:23.5rem;
-    display: flex;
-    overflow: hidden;
-    overflow-x: scroll;
-    object-fit: cover;
-}

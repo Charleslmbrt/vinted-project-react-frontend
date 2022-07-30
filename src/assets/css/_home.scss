@@ -1,0 +1,74 @@
+
+//OFFERS CONTAINER
+
+.offers-container {
+    max-width:128rem;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    .card-container {
+        width:23.5rem;
+        margin:0 auto;
+        padding-top:3.5rem;
+        
+    }
+    
+    .card-profile {
+        display: flex;
+        margin-bottom:0.7rem;
+       align-items: center;
+
+        p {
+            font-size: 1.2rem;
+            color:#999;   
+            margin-left:1rem;
+        }
+    }
+    
+    .card-avatar {
+        width:2.5rem;
+        height:2.5rem;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .default-avatar {
+        width:2.5rem;
+        height:2.5rem;
+        border-radius: 50%;
+        background-color: #2BAEB7;
+        text-align: center;
+
+        .default-avatar-text {
+            color: white;
+            font-weight: bold;  
+            margin:0.4rem 0rem 0rem 0rem;  
+        }
+    }
+
+
+    
+    .card-product-img img{
+        height:36rem;
+        width:100%;
+        display: flex;
+        object-fit: cover;
+    }
+    
+    .card-product-info {
+    
+        .card-product-price {
+            font-size: 1.4rem;
+            margin-top:1rem;
+        }
+    
+        .card-product-sb {
+            font-size: 1.2rem;
+            color:#999;
+        }
+    }
+ 
+
+}
+

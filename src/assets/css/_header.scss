@@ -6,6 +6,11 @@ $dark-green: #007580;
 header {
     height:5.2rem;
     border-bottom: 1px solid #EFEFEF;
+    position: sticky;
+    top:0;
+    position:-webkit-sticky;
+    z-index:2;
+    background-color: white;
 }
 
 .top-bar {
