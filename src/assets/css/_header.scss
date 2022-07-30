@@ -13,34 +13,64 @@ header {
     margin:0 auto;
     justify-content: space-between;
     align-items: center;
-    max-width:128rem;
+    width:128rem;
     padding: 0rem 2rem 0rem 2rem; 
 }
 
 .home-img {
     background-color: #EFEFEF;
+    background-image: url(../img/home-img.jpg);
+    background-size: cover;
     height: 45.5rem;
     width:100%;
+    position: relative;
+
+    .home-img-rip {
+        position: absolute;
+        // top:0;
+        bottom: 0;
+        right: 0;
+        height: 80px;
+        pointer-events: none;
+    }
+
+    .home-block-text {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        max-width:128rem;
+        margin: 0 auto;
+        padding-left: 2rem;
+    }
+    
+    .home-text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height:22rem;
+        width:40rem;
+        background-color: white;
+        border-radius: 0.5rem;
+        padding: 25px;
+        font-size: 3.2rem;
+        line-height: 4rem;
+        box-shadow: 0 0 2px rgb(17 17 17 / 24%);
+    }
+
+    .home-button {
+        height: 4.5rem;
+        width: 18.7rem;
+        background-color: #2baeb7;
+        border-radius: 0.4rem;
+        color: #fff;
+        font-size: 1.6rem;
+        border: none;
+        padding: 0 1.4rem;
+        margin-top: 3.2rem;
+    }
 }
 
-.home-block-text {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    max-width:128rem;
-    margin: 0 auto;
-    padding-left: 2rem;
-}
 
-.home-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height:22rem;
-    width:36rem;
-    background-color: white;
-    border-radius: 0.5rem;
-}
 
 
 .top-menu {
@@ -82,10 +112,11 @@ header {
 }
 
 .search {
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    position:relative;
 
     input {
-     
        width:59rem;
        color: #808080;
        background-color: #F2F2F2;
@@ -93,10 +124,18 @@ header {
        padding:0.8rem;
        border-radius: 0.5rem;
        outline: none;
+       padding-left:3rem;
     }
 
     ::placeholder {
         color: #BBBBBB;
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 1rem;
+        top: 0.9rem;
+        color: #bbb;
     }
 
 

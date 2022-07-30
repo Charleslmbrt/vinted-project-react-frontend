@@ -1,8 +1,11 @@
 import logoVinted from "../assets/img/logo-vinted.svg";
 import { useNavigate, Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({ token, setUser }) => {
   const navigate = useNavigate();
+  const iconSearch = <FontAwesomeIcon icon={faMagnifyingGlass} />;
 
   return (
     <header>
@@ -14,6 +17,7 @@ const Header = ({ token, setUser }) => {
         </div>
         <div className="search">
           <input placeholder="Recherche des articles"></input>
+          <i className="search-icon">{iconSearch}</i>
         </div>
 
         {token === null ? (

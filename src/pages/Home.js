@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import homeImgRip from "../assets/img/home-ripped.svg";
 
 const Home = () => {
   const [data, setData] = useState();
@@ -26,10 +27,11 @@ const Home = () => {
   ) : (
     <>
       <div className="home-img">
+        <img className="home-img-rip" src={homeImgRip} />
         <div className="home-block-text">
           <div className="home-text">
             <p>Prêts à faire du tri dans vos placards ?</p>
-            <button>Commencer à vendre</button>
+            <button className="home-button">Commencer à vendre</button>
           </div>
         </div>
       </div>
