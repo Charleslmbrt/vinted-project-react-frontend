@@ -27,7 +27,7 @@ const Home = () => {
   ) : (
     <>
       <div className="home-img">
-        <img className="home-img-rip" src={homeImgRip} />
+        <img className="home-img-rip" src={homeImgRip} alt="rip img" />
         <div className="home-block-text">
           <div className="home-text">
             <p>Prêts à faire du tri dans vos placards ?</p>
@@ -41,14 +41,14 @@ const Home = () => {
           {data.offers.map((offer, index) => {
             // console.log(offer?.owner?.account?.username);
             // if (offer.owner) {}
-            console.log(offer.product_image.secure_url);
+
             return (
               <div key={index} className="card-container">
                 <div className="card-profile">
-                  {offer.owner?.account.avatar.secure_url ? (
+                  {offer.owner?.account?.avatar?.secure_url ? (
                     <img
                       className="card-avatar"
-                      src={offer.owner?.account.avatar.secure_url}
+                      src={offer.owner?.account?.avatar?.secure_url}
                       alt="Avatar"
                     />
                   ) : (
@@ -56,7 +56,8 @@ const Home = () => {
                       <p className="default-avatar-text">V</p>
                     </div>
                   )}
-                  {offer.owner?.account.avatar.secure_url ? (
+
+                  {offer.owner?.account.username ? (
                     <p>{offer.owner?.account.username}</p>
                   ) : (
                     <p>Vendeur.se Vinted</p>
