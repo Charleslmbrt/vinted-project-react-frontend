@@ -4,12 +4,10 @@ import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const ModalSignup = ({ show, closeModal, setUser }) => {
+const ModalLogin = ({ show, closeModal, setUser }) => {
   const iconX = <FontAwesomeIcon icon={faXmark} />;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
-  const [newsletter, setNewsletter] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
@@ -25,20 +23,18 @@ const ModalSignup = ({ show, closeModal, setUser }) => {
         {
           email: email,
           password: password,
-          username: username,
-          newsletter: newsletter,
         }
       );
 
-      if (response.data) {
+      if (response.data.token) {
         setUser(response.data.token);
         closeModal();
         navigate("/");
       }
     } catch (error) {
       console.log(error.response.status);
-      if (error.response.status === 409) {
-        setErrorMessage("Cet email a déjà un compte!");
+      if (error.response.status === 404) {
+        setErrorMessage("Email ou mot de passe incorrect.");
       }
     }
   };
@@ -53,16 +49,8 @@ const ModalSignup = ({ show, closeModal, setUser }) => {
         <span className="iconx" onClick={closeModal}>
           {iconX}
         </span>
-        <h2 className="signup-title">S'inscrire</h2>
+        <h2 className="signup-title">Se connecter</h2>
         <form onSubmit={handleSignup} className="signup-form">
-          <input
-            type="text"
-            placeholder="Nom d'utilisateur"
-            value={username}
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-          />
           <input
             type="email"
             placeholder="Email"
@@ -82,29 +70,14 @@ const ModalSignup = ({ show, closeModal, setUser }) => {
           <p style={{ color: "red" }}>{errorMessage}</p>
 
           <div className="signup-checkbox-container">
-            <div className="checkbox">
-              <input
-                type="checkbox"
-                value={newsletter}
-                onChange={(event) => {
-                  setNewsletter(event.target.checked);
-                }}
-              />
-              <span>S'inscrire à la newsletter</span>
-            </div>
-            <p className="text-tc">
-              En m'inscrivant je confirme avoir lu et accepté les Termes &
-              Conditions et Politique de Confidentialité de Vinted. Je confirme
-              avoir au moins 18 ans.
-            </p>
             <button className="button-registration" type="Submit">
-              S'inscrire
+              Se connecter
             </button>
           </div>
         </form>
         <Link to="/login">
           <p className="already-account">
-            Tu as déjà un compte ? Connecte-toi !
+            Pas encore de compte ? Inscris-toi !
           </p>
         </Link>
       </div>
@@ -112,4 +85,4 @@ const ModalSignup = ({ show, closeModal, setUser }) => {
   );
 };
 
-export default ModalSignup;
+export default ModalLogin;

@@ -8,13 +8,24 @@ $dark-green: #007580;
     text-align: center;
     margin-top:3rem;
     background-color: white;
-    padding: 6rem;
+    padding: 3rem 5rem 3rem 5rem;
     border-radius: 0.8rem;
+    position: relative;
+
+    .iconx {
+        position: absolute;
+        top:1rem;
+        right:2rem;
+        font-size: 2.5rem;
+        cursor: pointer;
+        color: $dark-green;
+    }
 }
 
 .signup-title {
     font-size:2.4rem;
     font-weight: 400;
+    margin-bottom:1.6rem;
 }
 
 .signup-form {

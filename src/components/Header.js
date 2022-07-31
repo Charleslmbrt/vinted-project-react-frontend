@@ -31,11 +31,10 @@ const Header = ({ token, setUser, onOpening }) => {
               </button>
             </Link> */}
 
-            <Link to="/login">
-              <button className="button-line">
-                <span>Se connecter</span>
-              </button>
-            </Link>
+            <button onClick={onOpening} className="button-line">
+              <span>Se connecter</span>
+            </button>
+
             <button className="button-solid">Vends tes articles</button>
           </div>
         ) : (

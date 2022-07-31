@@ -29,6 +29,7 @@ const Signup = ({ setUser }) => {
 
       if (response.data) {
         setUser(response.data.token);
+
         navigate("/");
       }
     } catch (error) {

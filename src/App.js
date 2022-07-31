@@ -7,13 +7,14 @@ import "../src/assets/css/App.scss";
 
 //imports components
 import Header from "./components/Header";
-import Modal from "./components/ModalSignup";
+import ModalSignup from "./components/ModalSignup";
+import ModalLogin from "./components/ModalLogin";
 
 //imports pages
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 // import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -38,7 +39,7 @@ function App() {
   //déconnexion
   // setUser(null)
 
-  const onClose = () => {
+  const closeModal = () => {
     setShow(false);
   };
 
@@ -48,13 +49,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Modal onClose={onClose} show={show} setUser={setUser} />
+      <ModalSignup closeModal={closeModal} show={show} setUser={setUser} />
+      <ModalLogin closeModal={closeModal} show={show} setUser={setUser} />
       <Header onOpening={onOpening} token={token} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/offer/:offerId" element={<Offer />} />
         {/* <Route path="/signup" element={<Signup setUser={setUser} />} /> */}
-        <Route path="/login" element={<Login />} />
+        {/* <Route path="/login" element={<Login />} /> */}
       </Routes>
     </BrowserRouter>
   );
