@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-const Header = ({ token, setUser }) => {
+const Header = ({ token, setUser, onOpening }) => {
   const navigate = useNavigate();
   const iconSearch = <FontAwesomeIcon icon={faMagnifyingGlass} />;
 
@@ -22,11 +22,15 @@ const Header = ({ token, setUser }) => {
 
         {token === null ? (
           <div className="top-menu">
-            <Link to="/signup">
+            <button onClick={onOpening} className="button-line">
+              <span>S'inscrire</span>
+            </button>
+            {/* <Link to="/Signup">
               <button className="button-line">
                 <span>S'inscrire</span>
               </button>
-            </Link>
+            </Link> */}
+
             <Link to="/login">
               <button className="button-line">
                 <span>Se connecter</span>

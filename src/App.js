@@ -7,14 +7,16 @@ import "../src/assets/css/App.scss";
 
 //imports components
 import Header from "./components/Header";
+import Modal from "./components/ModalSignup";
 
 //imports pages
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
-import Signup from "./pages/Signup";
+// import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 
 function App() {
+  const [show, setShow] = useState(false);
   const [token, setToken] = useState(Cookies.get("userToken") || null);
 
   const setUser = (tokenToCheck) => {
@@ -36,13 +38,22 @@ function App() {
   //déconnexion
   // setUser(null)
 
+  const onClose = () => {
+    setShow(false);
+  };
+
+  const onOpening = () => {
+    setShow(true);
+  };
+
   return (
     <BrowserRouter>
-      <Header token={token} setUser={setUser} />
+      <Modal onClose={onClose} show={show} setUser={setUser} />
+      <Header onOpening={onOpening} token={token} setUser={setUser} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/offer/:offerId" element={<Offer />} />
-        <Route path="/signup" element={<Signup setUser={setUser} />} />
+        {/* <Route path="/signup" element={<Signup setUser={setUser} />} /> */}
         <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
