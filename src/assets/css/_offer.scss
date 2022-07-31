@@ -1,5 +1,9 @@
+//COLORS
+$dark-green: #007580;
+
 .offer-body {
     background-color:#ebedee;
+   height:100vh;
 }
 
 .offer-container {
@@ -7,11 +11,12 @@
     margin:0 auto;
     display: flex;
     justify-content: space-between;
-    padding: 3rem 2rem 3rem 2rem; 
+    padding: 10rem 2rem 3rem 2rem;  
+
 }
 
-.offer-pictures {
-    height: 60rem;
+.offer-pictures img {
+    height:70rem;
     object-fit: cover;
 }
 
@@ -23,6 +28,7 @@
 
     .offer-price {
        font-size: 2.4rem;
+       margin-bottom:2rem;
     }
 
     .offer-list li {
@@ -38,5 +44,61 @@
     .offer-list-name {
         color:#666;
         text-align: right;
+    }
+
+    .divider {
+        width: 100%;
+        height: 1px;
+        background: rgba(17,17,17,.1);
+        margin-top:2rem;
+        // display: block;
+    }
+}
+
+.offer-content {
+    .name {
+        font-weight: 700;
+        font-size: 1.5rem;
+       margin: 2rem 0rem 1rem 0rem;
+    }
+
+    .description {
+        color:#666; 
+        font-size: 1.5rem;
+        margin-bottom:2rem;
+    }
+
+    .offer-avatar-username {
+     display: flex;
+     align-items: center;
+     margin-bottom:4rem;
+        img{
+            height: 50px;
+            width: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 10px;  
+        }
+
+        p {
+            color:#666; 
+            font-size: 1.3rem;
+        }
+    }
+}
+
+.button-offer-buy {
+    cursor: pointer;
+    padding:1.5rem;
+    border-radius: 0.5rem;
+    width:100%;
+    background-color: $dark-green;
+    border:none;
+    font-size: 1.4rem;
+    color:white;
+    transition: background-color 0.2s, transform 0.2s;
+    transform: scale(1);
+    &:hover {
+      transform: scale(1.03);
     }
 }

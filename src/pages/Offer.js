@@ -28,13 +28,9 @@ const Offer = () => {
   ) : (
     <div className="offer-body">
       <div className="offer-container">
-        {data.product_pictures.map((picture, index) => {
-          return (
-            <div key={index} className="offer-pictures">
-              <img src={picture.secure_url} alt="" />
-            </div>
-          );
-        })}
+        <div className="offer-pictures">
+          <img src={data.product_image.secure_url} alt="" />
+        </div>
 
         <div className="offer-infos">
           <div className="offer-price">
@@ -63,7 +59,7 @@ const Offer = () => {
               <p>{data.owner?.account.username}</p>
             </div>
           </div>
-          <button>Acheter</button>
+          <button className="button-offer-buy">Acheter</button>
         </div>
       </div>
     </div>
