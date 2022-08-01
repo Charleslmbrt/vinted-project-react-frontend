@@ -29,7 +29,9 @@ const Offer = () => {
     <div className="offer-body">
       <div className="offer-container">
         <div className="offer-pictures">
-          <img src={data.product_image.secure_url} alt="" />
+          {data.product_image && (
+            <img src={data.product_image.secure_url} alt="" />
+          )}
         </div>
 
         <div className="offer-infos">
@@ -55,7 +57,10 @@ const Offer = () => {
             <p className="name">{data.product_name}</p>
             <p className="description">{data.product_description}</p>
             <div className="offer-avatar-username">
-              <img src={data.owner?.account.avatar.secure_url} alt="Avatar" />
+              {data.owner && data.owner.account.avatar && (
+                <img src={data.owner.account.avatar.secure_url} alt="Avatar" />
+              )}
+
               <p>{data.owner?.account.username}</p>
             </div>
           </div>

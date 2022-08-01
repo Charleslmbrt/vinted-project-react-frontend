@@ -14,7 +14,7 @@ const Login = ({ setUser }) => {
       event.preventDefault();
 
       const response = await axios.get(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
         {
           email: email,
           password: password,

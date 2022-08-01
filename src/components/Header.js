@@ -20,7 +20,7 @@ const Header = ({ token, setUser, onOpening, onOpeningLogin }) => {
           <i className="search-icon">{iconSearch}</i>
         </div>
 
-        {token === null ? (
+        {!token ? (
           <div className="top-menu">
             <button onClick={onOpening} className="button-line">
               <span>S'inscrire</span>
@@ -34,19 +34,25 @@ const Header = ({ token, setUser, onOpening, onOpeningLogin }) => {
             <button onClick={onOpeningLogin} className="button-line">
               <span>Se connecter</span>
             </button>
-            <Link to="/postad">
+            <Link to="/publish">
               <button className="button-solid">Vends tes articles</button>
             </Link>
           </div>
         ) : (
-          <button
-            onClick={() => {
-              setUser(null);
-              navigate("/");
-            }}
-          >
-            Se déconnecter
-          </button>
+          <>
+            <button
+              onClick={() => {
+                setUser(null);
+                navigate("/");
+              }}
+            >
+              Se déconnecter
+            </button>
+
+            <Link to="/publish">
+              <button className="button-solid">Vends tes articles</button>
+            </Link>
+          </>
         )}
       </div>
     </header>

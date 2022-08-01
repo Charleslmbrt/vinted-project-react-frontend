@@ -19,7 +19,7 @@ const ModalLogin = ({ showLogin, closeModalLogin, setUser }) => {
       setErrorMessage("");
 
       const response = await axios.post(
-        "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+        "https://lereacteur-vinted-api.herokuapp.com/user/login",
         {
           email: email,
           password: password,

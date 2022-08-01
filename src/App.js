@@ -13,7 +13,7 @@ import ModalLogin from "./components/ModalLogin";
 //imports pages
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
-import PostAd from "./pages/PostAd";
+import Publish from "./pages/Publish";
 // import Signup from "./pages/Signup";
 // import Login from "./pages/Login";
 
@@ -35,11 +35,8 @@ function App() {
     setToken(tokenToCheck);
   };
 
-  //connexion / inscription
-  // setUser("387D3G3UYGUY3GUEGUYZEGGYUGUYGUYGUYGD");
-
-  //déconnexion
-  // setUser(null)
+  //connexion / inscription = setUser("387D3G3UYGUY3GUEGUYZEGGYUGUYGUYGUYGD");
+  //déconnexion = setUser(null)
 
   const closeModal = () => {
     setShow(false);
@@ -74,9 +71,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/offer/:offerId" element={<Offer />} />
-        <Route path="/postad" element={<PostAd />} />
-        {/* <Route path="/signup" element={<Signup setUser={setUser} />} /> */}
-        {/* <Route path="/login" element={<Login />} /> */}
+        <Route
+          path="/publish"
+          element={<Publish token={token} setShow={setShow} />}
+        />
+        {/* <Route path="/signup" element={<Signup setUser={setUser} />} />
+        <Route path="/login" element={<Login />} /> */}
       </Routes>
     </BrowserRouter>
   );
