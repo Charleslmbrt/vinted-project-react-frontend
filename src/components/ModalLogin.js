@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const ModalLogin = ({ show, closeModal, setUser }) => {
+const ModalLogin = ({ showLogin, closeModalLogin, setUser }) => {
   const iconX = <FontAwesomeIcon icon={faXmark} />;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +28,7 @@ const ModalLogin = ({ show, closeModal, setUser }) => {
 
       if (response.data.token) {
         setUser(response.data.token);
-        closeModal();
+        closeModalLogin();
         navigate("/");
       }
     } catch (error) {
@@ -39,14 +39,14 @@ const ModalLogin = ({ show, closeModal, setUser }) => {
     }
   };
 
-  if (!show) {
+  if (!showLogin) {
     return null;
   }
   return (
     <div className="modal">
       {/* <div onClick={(event) => event.stopPropagation()}  className="signup-container"> */}
       <div className="signup-container">
-        <span className="iconx" onClick={closeModal}>
+        <span className="iconx" onClick={closeModalLogin}>
           {iconX}
         </span>
         <h2 className="signup-title">Se connecter</h2>

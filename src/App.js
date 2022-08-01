@@ -18,6 +18,7 @@ import Offer from "./pages/Offer";
 
 function App() {
   const [show, setShow] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
   const [token, setToken] = useState(Cookies.get("userToken") || null);
 
   const setUser = (tokenToCheck) => {
@@ -47,11 +48,28 @@ function App() {
     setShow(true);
   };
 
+  const closeModalLogin = () => {
+    setShowLogin(false);
+  };
+
+  const onOpeningLogin = () => {
+    setShowLogin(true);
+  };
+
   return (
     <BrowserRouter>
       <ModalSignup closeModal={closeModal} show={show} setUser={setUser} />
-      <ModalLogin closeModal={closeModal} show={show} setUser={setUser} />
-      <Header onOpening={onOpening} token={token} setUser={setUser} />
+      <ModalLogin
+        closeModalLogin={closeModalLogin}
+        showLogin={showLogin}
+        setUser={setUser}
+      />
+      <Header
+        onOpening={onOpening}
+        onOpeningLogin={onOpeningLogin}
+        token={token}
+        setUser={setUser}
+      />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/offer/:offerId" element={<Offer />} />

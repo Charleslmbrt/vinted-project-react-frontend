@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-const Header = ({ token, setUser, onOpening }) => {
+const Header = ({ token, setUser, onOpening, onOpeningLogin }) => {
   const navigate = useNavigate();
   const iconSearch = <FontAwesomeIcon icon={faMagnifyingGlass} />;
 
@@ -31,7 +31,7 @@ const Header = ({ token, setUser, onOpening }) => {
               </button>
             </Link> */}
 
-            <button onClick={onOpening} className="button-line">
+            <button onClick={onOpeningLogin} className="button-line">
               <span>Se connecter</span>
             </button>
 
