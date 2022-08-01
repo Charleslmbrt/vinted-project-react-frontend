@@ -34,8 +34,9 @@ const Header = ({ token, setUser, onOpening, onOpeningLogin }) => {
             <button onClick={onOpeningLogin} className="button-line">
               <span>Se connecter</span>
             </button>
-
-            <button className="button-solid">Vends tes articles</button>
+            <Link to="/postad">
+              <button className="button-solid">Vends tes articles</button>
+            </Link>
           </div>
         ) : (
           <button
