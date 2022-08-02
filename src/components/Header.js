@@ -3,7 +3,12 @@ import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-const Header = ({ token, setUser, onOpening, onOpeningLogin }) => {
+const Header = ({
+  token,
+  setUser,
+  toggleLoginForm,
+  toggleRegistrationForm,
+}) => {
   const navigate = useNavigate();
   const iconSearch = <FontAwesomeIcon icon={faMagnifyingGlass} />;
 
@@ -22,7 +27,7 @@ const Header = ({ token, setUser, onOpening, onOpeningLogin }) => {
 
         {!token ? (
           <div className="top-menu">
-            <button onClick={onOpening} className="button-line">
+            <button onClick={toggleRegistrationForm} className="button-line">
               <span>S'inscrire</span>
             </button>
             {/* <Link to="/Signup">
@@ -31,7 +36,7 @@ const Header = ({ token, setUser, onOpening, onOpeningLogin }) => {
               </button>
             </Link> */}
 
-            <button onClick={onOpeningLogin} className="button-line">
+            <button onClick={toggleLoginForm} className="button-line">
               <span>Se connecter</span>
             </button>
             <Link to="/publish">

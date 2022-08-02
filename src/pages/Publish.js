@@ -1,8 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const PostAd = ({ token, setShow }) => {
-  console.log(token);
+const PostAd = ({ token, toggleLoginForm, toggle }) => {
   const [isPictureSending, setIsPictureSending] = useState(false);
   const [data, setData] = useState(null);
   const [picture, setPicture] = useState(null);
@@ -49,7 +48,7 @@ const PostAd = ({ token, setShow }) => {
       console.log(error.response);
     }
   };
-  console.log(token);
+
   return token ? (
     <div className="publish-main">
       <div className="publish-container">
@@ -192,7 +191,7 @@ const PostAd = ({ token, setShow }) => {
       </div>
     </div>
   ) : (
-    setShow(true)
+    <p>Hello</p>
   );
 };
 

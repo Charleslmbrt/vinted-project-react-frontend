@@ -9,17 +9,18 @@ import "../src/assets/css/App.scss";
 import Header from "./components/Header";
 import ModalSignup from "./components/ModalSignup";
 import ModalLogin from "./components/ModalLogin";
+import useModal from "./components/useModal";
 
 //imports pages
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Publish from "./pages/Publish";
-// import Signup from "./pages/Signup";
-// import Login from "./pages/Login";
 
 function App() {
-  const [show, setShow] = useState(false);
-  const [showLogin, setShowLogin] = useState(false);
+  const { show: isLoginFormShowed, toggle: toggleLoginForm } = useModal();
+  const { show: isRegistrationFormShowed, toggle: toggleRegistrationForm } =
+    useModal();
+
   const [token, setToken] = useState(Cookies.get("userToken") || null);
 
   const setUser = (tokenToCheck) => {
@@ -38,33 +39,21 @@ function App() {
   //connexion / inscription = setUser("387D3G3UYGUY3GUEGUYZEGGYUGUYGUYGUYGD");
   //déconnexion = setUser(null)
 
-  const closeModal = () => {
-    setShow(false);
-  };
-
-  const onOpening = () => {
-    setShow(true);
-  };
-
-  const closeModalLogin = () => {
-    setShowLogin(false);
-  };
-
-  const onOpeningLogin = () => {
-    setShowLogin(true);
-  };
-
   return (
     <BrowserRouter>
-      <ModalSignup closeModal={closeModal} show={show} setUser={setUser} />
+      <ModalSignup
+        show={isRegistrationFormShowed}
+        hide={toggleRegistrationForm}
+        setUser={setUser}
+      />
       <ModalLogin
-        closeModalLogin={closeModalLogin}
-        showLogin={showLogin}
+        show={isLoginFormShowed}
+        hide={toggleLoginForm}
         setUser={setUser}
       />
       <Header
-        onOpening={onOpening}
-        onOpeningLogin={onOpeningLogin}
+        toggleLoginForm={toggleLoginForm}
+        toggleRegistrationForm={toggleRegistrationForm}
         token={token}
         setUser={setUser}
       />
@@ -73,10 +62,8 @@ function App() {
         <Route path="/offer/:offerId" element={<Offer />} />
         <Route
           path="/publish"
-          element={<Publish token={token} setShow={setShow} />}
+          element={<Publish token={token} toggleLoginForm={toggleLoginForm} />}
         />
-        {/* <Route path="/signup" element={<Signup setUser={setUser} />} />
-        <Route path="/login" element={<Login />} /> */}
       </Routes>
     </BrowserRouter>
   );
