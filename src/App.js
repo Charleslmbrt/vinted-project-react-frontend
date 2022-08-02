@@ -3,8 +3,6 @@ import { useState } from "react";
 import Cookies from "js-cookie";
 import "../src/assets/css/App.scss";
 
-// import homeImg from "./assets/img/home-img.jpg;";
-
 //imports components
 import Header from "./components/Header";
 import ModalSignup from "./components/ModalSignup";
@@ -15,6 +13,7 @@ import useModal from "./components/useModal";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 
 function App() {
   const { show: isLoginFormShowed, toggle: toggleLoginForm } = useModal();
@@ -35,7 +34,6 @@ function App() {
     }
     setToken(tokenToCheck);
   };
-
   //connexion / inscription = setUser("387D3G3UYGUY3GUEGUYZEGGYUGUYGUYGUYGD");
   //déconnexion = setUser(null)
 
@@ -46,11 +44,7 @@ function App() {
         hide={toggleRegistrationForm}
         setUser={setUser}
       />
-      <ModalLogin
-        show={isLoginFormShowed}
-        hide={toggleLoginForm}
-        setUser={setUser}
-      />
+
       <Header
         toggleLoginForm={toggleLoginForm}
         toggleRegistrationForm={toggleRegistrationForm}
@@ -59,12 +53,31 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/offer/:offerId" element={<Offer />} />
+        <Route
+          path="/offer/:offerId"
+          element={<Offer token={token} toggleLoginForm={toggleLoginForm} />}
+        />
         <Route
           path="/publish"
-          element={<Publish token={token} toggleLoginForm={toggleLoginForm} />}
+          element={
+            <Publish
+              token={token}
+              show={isLoginFormShowed}
+              toggleLoginForm={toggleLoginForm}
+            />
+          }
+        />
+        <Route
+          path="/payment"
+          element={<Payment token={token} toggleLoginForm={toggleLoginForm} />}
         />
       </Routes>
+      <ModalLogin
+        show={isLoginFormShowed}
+        hide={toggleLoginForm}
+        setUser={setUser}
+        token={token}
+      />
     </BrowserRouter>
   );
 }

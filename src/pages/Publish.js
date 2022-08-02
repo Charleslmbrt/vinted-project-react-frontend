@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
-const PostAd = ({ token, toggleLoginForm, toggle }) => {
+const Publish = ({ token, toggleLoginForm, show }) => {
   const [isPictureSending, setIsPictureSending] = useState(false);
   const [data, setData] = useState(null);
   const [picture, setPicture] = useState(null);
@@ -37,7 +37,7 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
         formData,
         {
           headers: {
-            authorization: "Bearer " + token,
+            authorization: `Bearer ${token}`,
             "Content-Type": "multipart/form-data",
           },
         }
@@ -49,7 +49,13 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
     }
   };
 
-  return token ? (
+  // useEffect(() => {
+  //   if (token === null) {
+  //     toggleLoginForm();
+  //   }
+  // }, [token]);
+
+  return (
     <div className="publish-main">
       <div className="publish-container">
         <h2>Vends ton article</h2>
@@ -57,7 +63,7 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
           <div className="file-select">
             <div className="file-button">
               {isPictureSending === true ? (
-                <h1>Image en cours d'uplaod</h1>
+                <h1>Image en cours d'upload</h1>
               ) : (
                 data && (
                   <img
@@ -197,9 +203,7 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
         </form>
       </div>
     </div>
-  ) : (
-    <p>Hello</p>
   );
 };
 
-export default PostAd;
+export default Publish;

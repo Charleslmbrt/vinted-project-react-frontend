@@ -11,6 +11,8 @@ const useModal = () => {
     show,
     toggle,
   };
+
+  // return [show, toggle];
 };
 
 export default useModal;

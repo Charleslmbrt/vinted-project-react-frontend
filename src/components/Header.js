@@ -30,18 +30,14 @@ const Header = ({
             <button onClick={toggleRegistrationForm} className="button-line">
               <span>S'inscrire</span>
             </button>
-            {/* <Link to="/Signup">
-              <button className="button-line">
-                <span>S'inscrire</span>
-              </button>
-            </Link> */}
 
             <button onClick={toggleLoginForm} className="button-line">
               <span>Se connecter</span>
             </button>
-            <Link to="/publish">
-              <button className="button-solid">Vends tes articles</button>
-            </Link>
+
+            <button onClick={toggleLoginForm} className="button-solid">
+              Vends tes articles
+            </button>
           </div>
         ) : (
           <>

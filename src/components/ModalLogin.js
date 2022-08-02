@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const ModalLogin = ({ show, hide, setUser }) => {
+const ModalLogin = ({ show, hide, setUser, token }) => {
   const iconX = <FontAwesomeIcon icon={faXmark} />;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -39,9 +39,6 @@ const ModalLogin = ({ show, hide, setUser }) => {
     }
   };
 
-  // if (!show) {
-  //   return null;
-  // }
   return show ? (
     <div className="modal">
       {/* <div onClick={(event) => event.stopPropagation()}  className="signup-container"> */}
@@ -49,6 +46,7 @@ const ModalLogin = ({ show, hide, setUser }) => {
         <span className="iconx" onClick={hide}>
           {iconX}
         </span>
+
         <h2 className="signup-title">Se connecter</h2>
         <form onSubmit={handleSignup} className="signup-form">
           <input
