@@ -72,10 +72,10 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
                 <span>Ajoute une photo</span>
               </label>
               <input
+                value={picture}
                 onChange={(event) => {
                   setPicture(event.target.files[0]);
                 }}
-                id="file"
                 type="file"
                 className="input-file"
               />
@@ -85,6 +85,7 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
             <div className="text-input">
               <h4>Titre</h4>
               <input
+                value={title}
                 onChange={(event) => {
                   setTitle(event.target.value);
                 }}
@@ -95,8 +96,8 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
             <div className="text-input">
               <h4>Décris ton article</h4>
               <textarea
+                value={describe}
                 name="description"
-                id="description"
                 rows="5"
                 placeholder="ex : Porté quelquesfois, taille correctement..."
                 onChange={(event) => {
@@ -109,6 +110,7 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
             <div className="text-input">
               <h4>Marque</h4>
               <input
+                value={brand}
                 onChange={(event) => {
                   setBrand(event.target.value);
                 }}
@@ -119,6 +121,7 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
             <div className="text-input">
               <h4>Taille</h4>
               <input
+                value={size}
                 onChange={(event) => {
                   setSize(event.target.value);
                 }}
@@ -129,6 +132,7 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
             <div className="text-input">
               <h4>Couleur</h4>
               <input
+                value={color}
                 onChange={(event) => {
                   setColor(event.target.value);
                 }}
@@ -139,6 +143,7 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
             <div className="text-input">
               <h4>Etat</h4>
               <input
+                value={state}
                 onChange={(event) => {
                   setState(event.target.value);
                 }}
@@ -149,6 +154,7 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
             <div className="text-input">
               <h4>Lieu</h4>
               <input
+                value={location}
                 onChange={(event) => {
                   setLocation(event.target.value);
                 }}
@@ -162,6 +168,7 @@ const PostAd = ({ token, toggleLoginForm, toggle }) => {
               <h4>Prix</h4>
               <div className="checkbox-section">
                 <input
+                  value={price}
                   onChange={(event) => {
                     setPrice(event.target.value);
                   }}
