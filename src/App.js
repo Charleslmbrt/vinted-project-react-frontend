@@ -7,7 +7,9 @@ import "../src/assets/css/App.scss";
 import Header from "./components/Header";
 import ModalSignup from "./components/ModalSignup";
 import ModalLogin from "./components/ModalLogin";
-import useModal from "./components/useModal";
+
+//imports hooks
+import useModal from "./hooks/useModal";
 
 //imports pages
 import Home from "./pages/Home";
@@ -42,9 +44,14 @@ function App() {
       <ModalSignup
         show={isRegistrationFormShowed}
         hide={toggleRegistrationForm}
+        toggleLoginForm={toggleLoginForm}
         setUser={setUser}
       />
-
+      <ModalLogin
+        show={isLoginFormShowed}
+        hide={toggleLoginForm}
+        setUser={setUser}
+      />
       <Header
         toggleLoginForm={toggleLoginForm}
         toggleRegistrationForm={toggleRegistrationForm}
@@ -72,12 +79,6 @@ function App() {
           element={<Payment token={token} toggleLoginForm={toggleLoginForm} />}
         />
       </Routes>
-      <ModalLogin
-        show={isLoginFormShowed}
-        hide={toggleLoginForm}
-        setUser={setUser}
-        token={token}
-      />
     </BrowserRouter>
   );
 }

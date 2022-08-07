@@ -23,7 +23,9 @@ const Home = () => {
   }, []);
 
   return isLoading === true ? (
-    <p>LOADING</p>
+    <div className="loader-main">
+      <div class="loader"></div>
+    </div>
   ) : (
     <>
       <div className="home-img">

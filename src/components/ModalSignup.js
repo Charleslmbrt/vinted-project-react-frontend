@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const ModalSignup = ({ show, hide, setUser }) => {
+const ModalSignup = ({ show, hide, setUser, toggleLoginForm }) => {
   const iconX = <FontAwesomeIcon icon={faXmark} />;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -99,11 +99,10 @@ const ModalSignup = ({ show, hide, setUser }) => {
             </button>
           </div>
         </form>
-        <Link to="/login">
-          <p className="already-account">
-            Tu as déjà un compte ? Connecte-toi !
-          </p>
-        </Link>
+
+        <p onClick={toggleLoginForm} className="already-account">
+          Tu as déjà un compte ? Connecte-toi !
+        </p>
       </div>
     </div>
   ) : null;

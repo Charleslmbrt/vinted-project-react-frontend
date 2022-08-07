@@ -15,15 +15,18 @@ const CheckOutForm = ({ title, price }) => {
       // 01. On récupère les données bancaires que l'utillisateur rentre
       const cardInfos = elements.getElement(CardElement);
 
-      // 02. Demande de création d'un token via l'API Stripe
-      // On envoie les données bancaires dans la requête
-      const stripeResponse = await stripe.createToken(cardInfos);
+      // 02. Demander à Stripe si elles sont valables
+      // puis Stripe génère un token via l'API Stripe.
+      // On envoie les données bancaires dans la requête.
+      const stripeResponse = await stripe.createToken(cardInfos, {
+        name: "Nicolas", //info non dynamique
+      });
       console.log(stripeResponse);
-      // 03. Envoie du token à mon serveur
+      // 03. Envoie de ce stripeToken à mon serveur (API vinted).
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/payment",
         {
-          token: stripeResponse.token.id,
+          stripeToken: stripeResponse.token.id,
           title: title,
           amount: price,
         }

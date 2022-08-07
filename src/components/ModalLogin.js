@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
-const ModalLogin = ({ show, hide, setUser, token }) => {
+const ModalLogin = ({ show, hide, setUser }) => {
   const iconX = <FontAwesomeIcon icon={faXmark} />;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -73,11 +73,8 @@ const ModalLogin = ({ show, hide, setUser, token }) => {
             </button>
           </div>
         </form>
-        <Link to="/login">
-          <p className="already-account">
-            Pas encore de compte ? Inscris-toi !
-          </p>
-        </Link>
+
+        <p className="already-account">Pas encore de compte ? Inscris-toi !</p>
       </div>
     </div>
   ) : null;

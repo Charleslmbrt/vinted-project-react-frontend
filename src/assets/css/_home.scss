@@ -1,3 +1,31 @@
+//COLORS
+$dark-green: #007580;
+
+//LOADER
+.loader-main {
+    background-color: $dark-green;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.loader {
+    border: 1rem  solid white; 
+    border-top: 1rem solid $dark-green; 
+    border-radius: 50%;
+    width: 10rem;
+    height: 10rem;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
 
 //OFFERS CONTAINER
 

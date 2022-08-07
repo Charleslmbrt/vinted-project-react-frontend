@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
-const Publish = ({ token, toggleLoginForm, show }) => {
+const Publish = ({ token }) => {
   const [isPictureSending, setIsPictureSending] = useState(false);
   const [data, setData] = useState(null);
   const [picture, setPicture] = useState(null);
